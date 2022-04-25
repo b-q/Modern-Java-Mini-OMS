@@ -13,10 +13,13 @@ public class UserApi {
     private final UserApiService userApiService;
 
     public UserApi() {
+
         userApiService = new UserApiServiceImpl();
     }
 
     @POST
+    @Consumes({"application/json"})
+    @Produces({"application/xml", "application/json"})
     public Response createUser(User user, @Context SecurityContext securityContext) throws NotFoundException {
         return userApiService.createUser(user, securityContext);
     }
@@ -44,6 +47,7 @@ public class UserApi {
     @PUT
     @Path("/{userName}")
     @Produces({"application/xml", "application/json"})
+    @Consumes({"application/json"})
     public Response updateUser(@PathParam("userName") String userName, User user, @Context SecurityContext securityContext) throws NotFoundException {
         return userApiService.updateUser(userName, user, securityContext);
     }

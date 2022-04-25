@@ -1,5 +1,7 @@
 package io.bq.sl.apps.japp.model;
 
+import javax.validation.constraints.NotNull;
+
 /**
  * User
  */
@@ -7,8 +9,8 @@ public class User {
 
     private Long id = null;
 
-    private String username = null;
-
+    @NotNull
+    private String username;
 
     private String firstName = null;
 
@@ -24,11 +26,6 @@ public class User {
 
     private String phone = null;
 
-    public User id(Long id) {
-        this.id = id;
-        return this;
-    }
-
     /**
      * Get id
      *
@@ -40,11 +37,6 @@ public class User {
 
     public void setId(Long id) {
         this.id = id;
-    }
-
-    public User username(String username) {
-        this.username = username;
-        return this;
     }
 
     /**
@@ -60,10 +52,6 @@ public class User {
         this.username = username;
     }
 
-    public User firstName(String firstName) {
-        this.firstName = firstName;
-        return this;
-    }
 
     /**
      * Get firstName
@@ -79,11 +67,6 @@ public class User {
         this.firstName = firstName;
     }
 
-    public User lastName(String lastName) {
-        this.lastName = lastName;
-        return this;
-    }
-
     /**
      * Get lastName
      *
@@ -97,11 +80,6 @@ public class User {
         this.lastName = lastName;
     }
 
-    public User email(String email) {
-        this.email = email;
-        return this;
-    }
-
     /**
      * Get email
      *
@@ -113,11 +91,6 @@ public class User {
 
     public void setEmail(String email) {
         this.email = email;
-    }
-
-    public User password(String password) {
-        this.password = password;
-        return this;
     }
 
     /**

@@ -16,6 +16,6 @@ public interface UserApiService {
 
     Response getUserList(SecurityContext securityContext) throws NotFoundException;
 
-    Response updateUser(String username, User body, SecurityContext securityContext) throws NotFoundException;
+    Response updateUser(String username, User user, SecurityContext securityContext) throws NotFoundException;
 
 }

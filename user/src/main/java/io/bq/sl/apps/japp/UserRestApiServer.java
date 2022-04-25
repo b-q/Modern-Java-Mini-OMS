@@ -1,6 +1,5 @@
 package io.bq.sl.apps.japp;
 
-import com.sun.net.httpserver.HttpServer;
 import io.bq.sl.apps.japp.api.UserApi;
 import org.glassfish.jersey.jdkhttp.JdkHttpServerFactory;
 import org.glassfish.jersey.server.ResourceConfig;
@@ -10,13 +9,13 @@ import java.net.URI;
 
 public class UserRestApiServer {
 
-    private final static int serverPort = 9998;
-    private final static String hostUrl = "http://localhost/";
+    private static final int SERVER_PORT = 9998;
+    private static final String HOST_URL = "http://localhost/";
 
     public static void main(String[] args) {
 
-        URI baseUri = UriBuilder.fromUri(hostUrl).port(serverPort).build();
+        URI baseUri = UriBuilder.fromUri(HOST_URL).port(SERVER_PORT).build();
         ResourceConfig config = new ResourceConfig(UserApi.class);
-        HttpServer server = JdkHttpServerFactory.createHttpServer(baseUri, config);
+        JdkHttpServerFactory.createHttpServer(baseUri, config);
     }
 }
